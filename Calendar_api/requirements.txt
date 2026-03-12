@@ -1,0 +1,18 @@
+Django==5.2.4
+djangorestframework==3.16.0
+djangorestframework-simplejwt==5.5.0
+python-decouple==3.8
+django-cors-headers==4.7.0
+psycopg2-binary==2.9.10
+pytz==2024.1
+
+# LangGraph and AI dependencies for event creation agent
+fastapi==0.115.4
+uvicorn==0.32.0
+langchain==0.3.7
+langchain-anthropic==0.2.4
+langchain-ollama==0.2.0
+langgraph==0.2.45
+python-dotenv==1.0.1
+pydantic==2.10.2
+requests==2.32.3

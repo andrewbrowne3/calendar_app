@@ -1,0 +1,151 @@
+.goals-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.goals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.goals-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.goals-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #212121;
+  margin: 0;
+}
+
+.goals-subtitle {
+  font-size: 14px;
+  color: #757575;
+  margin: 4px 0 0;
+}
+
+.goals-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  color: #757575;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background-color: #e0e0e0;
+  color: #212121;
+}
+
+.refresh-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.create-goal-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2196F3;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-goal-btn:hover {
+  background-color: #1976D2;
+}
+
+.goals-filter {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  color: #212121;
+}
+
+.filter-btn.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 32px;
+  background-color: white;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0 0 8px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #757575;
+  margin: 0 0 24px;
+}

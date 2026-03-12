@@ -1,0 +1,148 @@
+.calendar-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.calendar-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #212121;
+  margin: 0;
+}
+
+.calendar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  color: #757575;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background-color: #e0e0e0;
+  color: #212121;
+}
+
+.refresh-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.create-event-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2196F3;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-event-btn:hover {
+  background-color: #1976D2;
+}
+
+.calendar-container {
+  flex: 1;
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* react-big-calendar customization */
+.rbc-calendar {
+  font-family: inherit;
+}
+
+.rbc-header {
+  padding: 12px 8px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.rbc-today {
+  background-color: #e3f2fd;
+}
+
+.rbc-button-link {
+  color: #2196F3;
+}
+
+.rbc-toolbar button {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #f5f5f5;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #2196F3;
+  color: white;
+  border-color: #2196F3;
+}
+
+.rbc-toolbar button.rbc-active:hover {
+  background-color: #1976D2;
+}
+
+.rbc-month-view .rbc-month-row {
+  min-height: 100px;
+}
+
+.rbc-event {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.rbc-event-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

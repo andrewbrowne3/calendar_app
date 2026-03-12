@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  calendar_api:
+    build: .
+    ports:
+      - "2010:2010"
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=your-secret-key-change-in-production
+      - DB_NAME=calendar_db
+      - DB_USER=asbrowne1
+      - DB_PASSWORD=zejZic-pugwis-9satti
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3147
+      - ALLOWED_HOSTS=*
+    volumes:
+      - .:/app
+      - staticfiles:/app/staticfiles
+    depends_on:
+      - db_wait
+    restart: unless-stopped
+
+  # Service to wait for PostgreSQL to be ready
+  db_wait:
+    image: postgres:15
+    command: >
+      sh -c "until pg_isready -h host.docker.internal -p 3147 -U asbrowne1; do
+        echo 'Waiting for PostgreSQL...';
+        sleep 2;
+      done;
+      echo 'PostgreSQL is ready!'"
+    environment:
+      - PGPASSWORD=zejZic-pugwis-9satti
+
+volumes:
+  staticfiles:

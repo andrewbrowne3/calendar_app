@@ -1,0 +1,49 @@
+FROM python:3.10-slim
+
+# Set timezone
+ENV TZ=America/New_York
+
+# Install system dependencies and set timezone
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        tzdata \
+    && ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime \
+    && echo "America/New_York" > /etc/timezone \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies for agent
+RUN pip install --no-cache-dir \
+    fastapi==0.116.1 \
+    uvicorn==0.35.0 \
+    langchain==0.3.27 \
+    langchain-anthropic==0.3.19 \
+    langchain-ollama==0.3.7 \
+    langgraph==0.6.6 \
+    python-dotenv==1.1.1 \
+    pydantic==2.11.7 \
+    requests==2.32.5 \
+    pytz==2025.2
+
+# Copy agent files
+COPY simple_event_agent.py .
+COPY event_agent.py .
+
+# Create checkpoints directory
+RUN mkdir -p checkpoints
+
+# Expose port
+EXPOSE 2017
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:2017/health || exit 1
+
+# Run the simple agent
+CMD ["uvicorn", "simple_event_agent:app", "--host", "0.0.0.0", "--port", "2017"]

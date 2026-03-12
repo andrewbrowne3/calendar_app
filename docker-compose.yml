@@ -1,0 +1,77 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: ./calendar_web/
+    ports:
+      - "3012:80"
+    depends_on:
+      - api
+      - agent
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./Calendar_api/
+    ports:
+      - "2011:2011"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: calendar
+      DB_USER: calendar_user
+      DB_PASSWORD: calendar_pass
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  agent:
+    build:
+      context: ./Calendar_agent/
+    ports:
+      - "4012:4012"
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: calendar
+      DB_USER: calendar_user
+      DB_PASSWORD: calendar_pass
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: calendar
+      POSTGRES_USER: calendar_user
+      POSTGRES_PASSWORD: calendar_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

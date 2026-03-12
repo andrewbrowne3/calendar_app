@@ -1,0 +1,97 @@
+.event-card {
+  display: flex;
+  overflow: hidden;
+}
+
+.event-card-accent {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.event-card-content {
+  flex: 1;
+  padding: 4px 0 0 16px;
+}
+
+.event-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0 0 16px;
+}
+
+.event-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.event-card-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #757575;
+  font-size: 14px;
+}
+
+.event-card-detail svg {
+  flex-shrink: 0;
+}
+
+.calendar-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.event-card-description {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.event-card-description p {
+  margin: 0;
+  font-size: 14px;
+  color: #212121;
+  line-height: 1.5;
+}
+
+.event-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary {
+  background-color: #f5f5f5;
+  color: #212121;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-danger {
+  background-color: #F44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #D32F2F;
+}
